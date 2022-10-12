@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+#Title 
+{
+    text-align: left;
+    background-color: black;
+    
+}
+#Title .box 
+{
+
+    color:#fff;
+    display: inline;
+}
+#Title h1 
+{
+    color: #0ff;
+   
+
+}
+.main {
+    text-align: center;
+    background-color: #663399;
+    font-style: italic ;
+
+    color :#fff
+
+
+
+    ;
+}
+.content {
+text-align: right;
+background-color: #9FC5F8;
+
+}
