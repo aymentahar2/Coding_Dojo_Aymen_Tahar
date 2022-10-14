@@ -1,0 +1,49 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    width: 50%;
+    height: 500px;
+    border: 1px solid gray;
+    position: relative;
+    top: 100px;
+    left: 200px;
+
+
+}
+.box {
+    padding: 50px;
+    position: relative;
+    bottom: 100px;
+
+}
+.blue {
+    background-color: rgb(23, 162, 184);
+    height: 100px;
+    overflow: hidden;
+    z-index: 1;
+}
+.user {
+    border: 2px solid gray;
+    border-radius: 50%;
+    height: 100px;
+    padding: 2px;
+    background-color: #fff;
+}
+.seattle {
+    display: flex;
+}
+.map {
+    height: 30px;
+    position: relative;
+    top: 15px;
+    margin-right: 20px;
+}
+.last {
+    display: flex;
+    
+}
+.gear {
+    height: 30px;
+    margin-right: 20px; ;
+}
