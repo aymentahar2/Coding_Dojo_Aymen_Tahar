@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import classe from './component.css'
+import classes from './component.css'
 class PersonCard extends Component {
 
     render() {
