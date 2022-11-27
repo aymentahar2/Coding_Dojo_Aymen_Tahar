@@ -37,7 +37,7 @@ class PersonComponent extends Component{
                     <p>Age: {this.state.age}</p>
                     <p>Hair Color: {this.state.hairColor}</p>
                     <hr />
-                    <button onClick={() => { this.incr() }}>click me</button><br />
+                    <button onClick={() =>{ this.incr() }}>click me</button><br />
                     <hr />
                 </div>
             </div>
