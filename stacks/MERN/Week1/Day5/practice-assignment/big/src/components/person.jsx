@@ -4,8 +4,8 @@ import classes from './person.css';
 
 const Test = (props) => {
      return (
-            <div className={classes.card}>
-                <div className={classes.content}>
+            <div className={classes.card} key={props.persons.id}>
+                <div className={classes.content} >
                     <h1>{props.persons.lastName}, {props.persons.firstName}</h1>
                     <p>Age: {props.persons.age}</p>
                     <p>Hair Color: {props.persons.hairColor}</p>
