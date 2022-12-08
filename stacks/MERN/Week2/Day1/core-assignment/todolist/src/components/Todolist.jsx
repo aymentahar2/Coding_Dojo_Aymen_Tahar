@@ -1,69 +1,90 @@
-import React, { useState } from 'react'
-import uuid from 'react-uuid';
+import React, { useState, useEffect } from "react";
+import "./TodoList.css";
+import uuid from "react-uuid";
 
-const Form = (props) => {
+const TodoList = () => {
+  const [content, setContent] = useState("");
+  const [list, setList] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
 
-const [input, setInput] = useState('');
-const [tasks,setTasks] = useState([]);
+  // GET INPUT VALUE
+  const onChangeHandler = (e) => {
+    setContent(e.target.value);
+  };
 
-//GET INPUT VALUE
-const onChangeHandler = e =>{ 
-    setInput(e.target.value);
-}
-
-// ADD tasks
-
-const onsubmitHandler = e =>{ 
+  // CREATE NEW TASK
+  const onSubmitHandler = (e) => {
     e.preventDefault();
-    setTasks([...tasks, {task: input,id:uuid(), isCompleted: false}]);
-    setInput("");
-}
-///
+    if (content) {
+      setList([
+        ...list,
+        { content, id: uuid(), isCompleted: false }, // new Date().getTime().toString()
+      ]);
 
-return (
-    <main className="main">
-    <div className="form">
+      // EMPTY INPUT
+      setContent("");
+    }
+  };
 
-        <form onSubmit={onsubmitHandler}>
-             <div>
-    <input type="text" name='input' onChange={onChangeHandler} value={input}/>
-           </div>
+  // DELETE TASK
+  const removeTask = (id) => {
+    const filtredList = list.filter((task) => task.id !== id);
+    setList(filtredList);
+  };
 
-    <button> Add</button>
-    
+  // ADD TASK TO LOCALSTORAGE
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(list));
+  }, [list]);
+
+  return (
+    <div className="main">
+      <div className="form">
+        <form onSubmit={onSubmitHandler}>
+          <input
+            type="text"
+            name="content"
+            value={content}
+            onChange={onChangeHandler}
+          />
+          <input type="submit" value="Add" />
         </form>
-    
+      </div>
+      <div className="tasks">
+        {list.map((task) => {
+          return (
+            <div className="task" key={task.id}>
+              <p
+                style={
+                  task.isCompleted
+                    ? { textDecoration: "line-through" }
+                    : { textDecoration: "none" }
+                }
+              >
+                {task.content}
+              </p>
+              <input
+                type="checkbox"
+                checked={task.isCompleted}
+                onChange={(e) => {
+                  setList((prevList) => {
+                    const newList = prevList.map((item) =>
+                      item.content === task.content
+                        ? { ...item, isCompleted: !item.isCompleted }
+                        : item
+                    );
+                    return newList;
+                  });
+                }}
+              />
+              <button onClick={() => removeTask(task.id)}>Delete</button>
+            </div>
+          );
+        })}
+      </div>
     </div>
+  );
+};
 
-    <div  className="tasks" >
-
-        {tasks.map(({task, id, isCompleted}) => {
-            return (
-                <div key={id}>
-                    <div>
-                    <p> <input type="checkbox" onChange= {e =>{ 
-                        setTasks((prevTasks) => {
-                            const newTasks = prevTasks.map(prevTask => prevTask.task === task?{task,id,isCompleted:!isCompleted}:{task,id,isCompleted});
-                            return newTasks;
-                        }
-                        );
-                       
-                    }
-                    
-                    } />  {task}</p> 
-                       
-                    </div>
-                </div> 
-        )})}
-        
-        
-
-
-    </div>
-    
-    </main>
-
-  )
-}
-
-export default Form ;
+export default TodoList;
