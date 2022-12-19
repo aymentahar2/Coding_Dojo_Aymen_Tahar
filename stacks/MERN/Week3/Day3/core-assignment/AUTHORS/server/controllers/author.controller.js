@@ -2,7 +2,7 @@
 
 const Author = require("../models/author.model");
 
-//--------------Create Authors
+//--------------Create Authors----------
 
 module.exports.addAuthor = (req, res) => {
   Author.create(req.body)
@@ -12,7 +12,7 @@ module.exports.addAuthor = (req, res) => {
     .catch((err) => res.status(400).json(err));
 };
 
-//--------------Gett All Authors-----
+//--------------Gett All Authors---------
 
 module.exports.findAllAuthors = (req, res) => {
   Author.find()
@@ -24,7 +24,7 @@ module.exports.findAllAuthors = (req, res) => {
     });
 };
 
-//---------------------FindOnAuthors
+//---------------------FindOnAuthors---------
 
 module.exports.findOneAuthor = (req, res) => {
   Author.findOne({ _id: req.params.id })
@@ -34,7 +34,7 @@ module.exports.findOneAuthor = (req, res) => {
     .catch((err) => res.status(400).json(err));
 };
 
-//----------------------updateExistingAuthor
+//----------------------updateExistingAuthor-----
 
 module.exports.updateExistingAuthor = (req, res) => {
   Author.findOneAndUpdate({ _id: req.params.id }, req.body, {
@@ -45,7 +45,7 @@ module.exports.updateExistingAuthor = (req, res) => {
     .catch((err) => res.status(400).json(err));
 };
 
-//--------------deleteExistingAuthor
+//--------------deleteExistingAuthor-----------
 
 module.exports.deleteAnExistingAuthor = (req, res) => {
   Author.deleteOne({ _id: req.params.id })
@@ -53,7 +53,7 @@ module.exports.deleteAnExistingAuthor = (req, res) => {
     .catch((err) => res.status(400).json(err));
 };
 
-//.********************books*****************
+//.********************books********************
 
 module.exports.addBook = (req, res) => {
   Author.findOneAndUpdate(

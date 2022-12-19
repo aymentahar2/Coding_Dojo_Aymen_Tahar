@@ -1,12 +1,12 @@
 import React from "react";
-import { useState } from "react";
-import { useNavigate, Link, useParams } from "react-router-dom";
+// import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const AuthorList = ({ authors, deleteHandler }) => {
-  //(props)=> const {authors}=props;
+  //(props)=> const {authors,deleteHandler}=props;
   const navigate = useNavigate();
-  const [author, setAuthor] = useState();
-  const { id } = useParams();
+  // const [author, setAuthor] = useState();
+  // const { id } = useParams();
 
   const goToUpdate = (authorsID) => {
     navigate("/update/" + authorsID);
