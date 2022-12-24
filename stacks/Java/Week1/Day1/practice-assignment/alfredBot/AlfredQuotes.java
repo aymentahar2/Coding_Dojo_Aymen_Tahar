@@ -14,7 +14,8 @@ public class AlfredQuotes {
 
 
     public String dateAnnouncement() {
-        return String.format("It is currently %s", new Date());
+        Date date = new Date();
+        return String.format("It is currently %s", date);
     }
     
    
