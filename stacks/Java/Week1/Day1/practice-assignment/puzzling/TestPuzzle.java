@@ -11,9 +11,9 @@ public class TestPuzzle {
     // getRandomLetter
         String randomLetter = generator.getRandomLetter();
         System.out.println(randomLetter);
-     // generatePassword
+    // generatePassword
      System.out.println(generator.generatePassword());
-	 // getNewPasswordSet
+	// getNewPasswordSet
      System.out.println(generator.getNewPasswordSet(20));
     	
 	}

@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Puzzle {
 
-    // getTenRolls
+// getTenRolls
 
     public ArrayList<Integer> getTenRolls() {
 
@@ -18,7 +18,7 @@ public class Puzzle {
     }
 
 
-    // getRandomLetter
+// getRandomLetter
 
     public String getRandomLetter() {
 
@@ -29,7 +29,7 @@ public class Puzzle {
         return String.valueOf(randomChar);
     }
 
-    // generatePassword
+// generatePassword
     public String generatePassword() {
 
         String password = "";
@@ -41,7 +41,7 @@ public class Puzzle {
     }
 
 
-    // getNewPasswordSet
+// getNewPasswordSet
 
     public ArrayList<String> getNewPasswordSet(int length) {
 
